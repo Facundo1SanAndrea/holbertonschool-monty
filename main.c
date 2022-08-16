@@ -8,11 +8,11 @@
 
 int main(int argc, char **argv)
 {
-	char *line; 
+	char *line = NULL; 
 	int line_max = 1024;
 	FILE *aux_argv;
 
-	/*line = malloc(line_max);*/
+	line = malloc(line_max);
 	if (line == NULL)
 	{
 		fprintf(stderr,"Error: malloc failed\n");
@@ -24,5 +24,6 @@ int main(int argc, char **argv)
 		printf("%s", line);
 	}
 	fclose(aux_argv);
+	free(line);
 	return(0);
 }

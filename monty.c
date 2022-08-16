@@ -32,22 +32,22 @@ FILE *error_message(int argc, char **argv)
  *
  */
 
-//int (*picker(char *token))(**stack_t stack, int line_number)
-//{
-//	instruction_t[] = {
-//		{"push", push}
-//		{"pall", pall}
-//	};
-//	int i = 0;
-//
-//	while (i < 1)
-//	{
-//		while(instruction_t[i].opcode)
-//		{
-//			if (instruction_t[i].opcode[0] == token)
-//				return (instruction_t[i].f);
-//			i++;
-//		}
-//	}
-//	return(1);
-//}
+/*int (*picker(char *token))(**stack_t stack, int line_number)
+{
+	instruction_t[] = {
+		{"push", push}
+		{"pall", pall}
+	};
+	int i = 0;
+
+	while (i < 1)
+	{
+		while(instruction_t[i].opcode)
+		{
+			if (instruction_t[i].opcode[0] == token)
+			return (instruction_t[i].f);
+			i++;
+		}
+	}
+	return(1);
+}*/
