@@ -35,6 +35,7 @@ typedef struct instruction_s
 #include<stdlib.h>
 #include<string.h>
 #include<unistd.h>
+#include<ctype.h>
 
 FILE *error_message(int argc, char **argv);
 void check_instruction(char *token, unsigned int line_number);
