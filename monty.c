@@ -32,7 +32,7 @@ FILE *error_message(int argc, char **argv)
  *
  */
 
-/*int (*picker(char *token))(**stack_t stack, int line_number)
+int (*picker(char *token))(**stack_t stack, int line_number)
 {
 	instruction_t[] = {
 		{"push", push}
@@ -50,4 +50,4 @@ FILE *error_message(int argc, char **argv)
 		}
 	}
 	return(1);
-}*/
+}
