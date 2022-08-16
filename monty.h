@@ -36,7 +36,7 @@ typedef struct instruction_s
 #include<string.h>
 #include<unistd.h>
 
-FILE error_message(int argc, char **argv);
+FILE *error_message(int argc, char **argv);
 
 
 #endif

@@ -6,7 +6,7 @@
  * @argv: list of arguments.
  *
  */
-FILE error_message(int argc, char **argv)
+FILE *error_message(int argc, char **argv)
 {
 	FILE *archive;
 
@@ -24,7 +24,7 @@ FILE error_message(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	
-	return (*archive);
+	return (archive);
 }
 
 /**
