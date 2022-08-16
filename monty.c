@@ -1,16 +1,14 @@
 #include "monty.h"
-#include <unistd.h>
 
 /**
- * main - monty program
+ * error_message - this function chekcs error in the monty program
  * @argc: number of arguments.
  * @argv: list of arguments.
  *
  */
-int main(int argc, char **argv)
+int error_message(int argc, char **argv)
 {
 	FILE *archive;
-//	size_t 
 
 	if (argc != 2)
 	{
@@ -28,3 +26,5 @@ int main(int argc, char **argv)
 	
 	return(0);
 }
+
+
