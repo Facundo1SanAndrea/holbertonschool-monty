@@ -27,4 +27,27 @@ int error_message(int argc, char **argv)
 	return(0);
 }
 
+/**
+ *
+ *
+ */
 
+int (*picker(char *token))
+{
+	instructions_s[] = {
+		{"push", push}
+		{"pall", pall}
+	};
+	int i = 0;
+
+	while (i < 1)
+	{
+		while(instructions_s[i].opcode)
+		{
+			if (instrcutions_s[i].opcode[0] == token)
+				return (instructions_s[i].f);
+			i++;
+		}
+	}
+	return(1);
+}
