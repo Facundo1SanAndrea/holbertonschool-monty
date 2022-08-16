@@ -6,7 +6,7 @@
  * @argv: list of arguments.
  *
  */
-int error_message(int argc, char **argv)
+FILE error_message(int argc, char **argv)
 {
 	FILE *archive;
 
@@ -24,7 +24,7 @@ int error_message(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	
-	return(0);
+	return (*archive);
 }
 
 /**
@@ -32,22 +32,22 @@ int error_message(int argc, char **argv)
  *
  */
 
-int (*picker(char *token))
-{
-	instructions_s[] = {
-		{"push", push}
-		{"pall", pall}
-	};
-	int i = 0;
-
-	while (i < 1)
-	{
-		while(instructions_s[i].opcode)
-		{
-			if (instrcutions_s[i].opcode[0] == token)
-				return (instructions_s[i].f);
-			i++;
-		}
-	}
-	return(1);
-}
+//int (*picker(char *token))(**stack_t stack, int line_number)
+//{
+//	instruction_t[] = {
+//		{"push", push}
+//		{"pall", pall}
+//	};
+//	int i = 0;
+//
+//	while (i < 1)
+//	{
+//		while(instruction_t[i].opcode)
+//		{
+//			if (instruction_t[i].opcode[0] == token)
+//				return (instruction_t[i].f);
+//			i++;
+//		}
+//	}
+//	return(1);
+//}
