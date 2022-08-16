@@ -27,6 +27,20 @@ FILE *error_message(int argc, char **argv)
 	return (archive);
 }
 
+void check_instruction(char *token, unsigned int line_number)
+{
+	if (!(strcmp("push", token)))
+		printf("%s\n", token);
+	else if (!(strcmp("pall", token)))
+		printf("%s\n", token);
+	else
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
+		exit(EXIT_FAILURE);
+	}
+
+
+}
 /**
  *
  *
@@ -48,6 +62,11 @@ int (*picker(char *token))(**stack_t stack, int line_number)
 			return (instruction_t[i].f);
 			i++;
 		}
+	}
+	else
+	{
+		fprintf(stderr, "L%d: unknown instruction %s", line_number, token);
+		exit(EXIT_FAILURE);
 	}
 	return(1);
 }
