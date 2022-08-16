@@ -37,6 +37,6 @@ typedef struct instruction_s
 #include<unistd.h>
 
 FILE *error_message(int argc, char **argv);
-
+void check_instruction(char *token, unsigned int line_number);
 
 #endif
