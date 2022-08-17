@@ -38,6 +38,6 @@ typedef struct instruction_s
 #include<ctype.h>
 
 FILE *error_message(int argc, char **argv);
-void check_instruction(char *token, unsigned int line_number);
+void check_instruction(char *token, char *line, FILE *aux_argv, unsigned int line_number);
 
 #endif

@@ -22,11 +22,18 @@ int main(int argc, char **argv)
 	while (fgets(line, line_max, aux_argv))
 	{
 		token = strtok(line, " \t\n");
-		while (token)
-		{
+		/*while (token)
+		{*/
 			/*printf("%s\n", token);*/ /*tokeniza line*/
-			check_instruction(token, line_number);
-			token = strtok(NULL, " \t\n");
+		if (token)
+		{
+			check_instruction(token, line, aux_argv, line_number);
+			/*printf("token es %s\n", token);*/
+			if (!(strcmp("push", token)))
+			{
+				token = strtok(NULL, " \t\n");
+				printf("%d\n", atoi(token));
+			}
 		}
 		line_number++;
 	}
