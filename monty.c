@@ -29,9 +29,10 @@ FILE *error_message(int argc, char **argv)
 
 void check_instruction(char *token, char *line, FILE *aux_argv, unsigned int line_number)
 {
-	if (!(strcmp("push", token)) || !(strcmp("pall", token))
-			|| !(strcmp("pint", token)))
-		printf("%s\n", token);
+	if (get_func(token) != NULL)
+	{
+		get_func(token);
+	}
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
@@ -42,29 +43,29 @@ void check_instruction(char *token, char *line, FILE *aux_argv, unsigned int lin
 
 
 }
+
 /**
  *
  *
  */
 
-/*int (*picker)(stack_t **stack, int line_number, char *token, unsigned int line_number)
+int (*get_func(char *token))(**stack_t stack, int line_number)
 {
-	instruction_t[] = {
-		{"push", push}
-		{"pall", pall}
-		{NULL, NULL}
-	};
-	int i = 0;
+        instruction_t[] = {
+                {"push", push}
+                {"pall", pall}
+		{NULL, NULL} 
+        };
+        int i = 0;
 
-	while(instruction_t[i].opcode)
-	{
-		if (instruction_t[i].opcode[0] == token)
-		return (instruction_t[i].f);
-		i++;
-	}
-	{
-		fprintf(stderr, "L%d: unknown instruction %s", line_number, token);
-		exit(EXIT_FAILURE);
-	}
-	return(1);
-}*/
+        while (i < 3)
+        {
+                while(instruction_t[i].opcode)
+                {
+                        if (instruction_t[i].opcode == token)
+                        return (instruction_t[i].f);
+                        i++;
+                }
+        }
+        return(instruction_t[3].f);
+}
