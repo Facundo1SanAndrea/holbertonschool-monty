@@ -39,5 +39,8 @@ typedef struct instruction_s
 
 FILE *error_message(int argc, char **argv);
 void check_instruction(char *token, char *line, FILE *aux_argv, unsigned int line_number);
-
+int (*get_func(char *token))(**stack_t stack, int line_number);
+static int digit_only(char *arg);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 #endif
