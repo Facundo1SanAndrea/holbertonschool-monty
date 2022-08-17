@@ -5,12 +5,14 @@
  *
  *
  */
+char *global_variable;
 
 int main(int argc, char **argv)
 {
-	char *line = NULL, *token = NULL; 
+	char *line = NULL, *token = NULL, *token_2 = NULL; 
 	unsigned int line_max = 1024, line_number = 1;
 	FILE *aux_argv;
+	stack_t *stack;
 
 	line = malloc(line_max);
 	if (line == NULL)
@@ -22,18 +24,19 @@ int main(int argc, char **argv)
 	while (fgets(line, line_max, aux_argv))
 	{
 		token = strtok(line, " \t\n");
-		/*while (token)
-		{*/
-			/*printf("%s\n", token);*/ /*tokeniza line*/
 		if (token)
 		{
-			check_instruction(token, line, aux_argv, line_number);
-			/*printf("token es %s\n", token);*/
 			if (!(strcmp("push", token)))
 			{
-				token = strtok(NULL, " \t\n");
-				printf("%d\n", atoi(token));
+				printf("entro al if\n");
+				token_2 = strtok(NULL, " \t\n");
+				global_variable = token_2;
+				printf("global %s\n", global_variable);/*arreglar funcon push*/
+				push(&stack, line_number);
+				printf("ejecuto push\n");
 			}
+			else
+				check_inst(token, line, aux_argv, line_number);
 		}
 		line_number++;
 	}

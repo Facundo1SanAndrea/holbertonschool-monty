@@ -27,45 +27,46 @@ FILE *error_message(int argc, char **argv)
 	return (archive);
 }
 
-void check_instruction(char *token, char *line, FILE *aux_argv, unsigned int line_number)
-{
-	if (get_func(token) != NULL)
-	{
-		get_func(token);
-	}
-	else
-	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
-		fclose(aux_argv);
-		free(line);
-		exit(EXIT_FAILURE);
-	}
-
-
-}
-
 /**
  *
  *
  */
 
-int (*get_func(char *token))(**stack_t stack, int line_number)
+int get_func(char *token, unsigned int line_number, stack_t *stack)
 {
-        instruction_t[] = {
-                {"push", push}
-                {"pall", pall}
+        int i = 0;
+	instruction_t inst[] = {
+                {"pall", pall},
+		{"pint", pint},
 		{NULL, NULL} 
         };
-        int i = 0;
 
-        while (i < 3)
+	while (i < 2)
         {
-                while(instruction_t[i].opcode)
-                {
-                        if (instruction_t[i].opcode == token)
-                        return (instruction_t[i].f);
-                        i++;
-                }
+		if (!(strcmp(inst[i].opcode, token)))
+		{
+        		printf("token en get_fun %s\n", inst[i].opcode);
+			(*(inst[i].f))(&stack, line_number);
+			return (2);
+		}
+		i++;
         }
-        return(instruction_t[3].f);
+	return (0);
+}
+
+void check_inst(char *token, char *line, FILE *aux_argv, unsigned int l_n)
+{
+        stack_t *stack = NULL;
+        int n = 0;
+
+        n = get_func(token, l_n, stack);
+        if (!n)
+        {
+                fprintf(stderr, "L%d: unknown instruction %s\n", l_n, token);
+                fclose(aux_argv);
+                free(line);
+                exit(EXIT_FAILURE);
+        }
+
+
 }
