@@ -17,5 +17,4 @@ void push(stack_t **stack, unsigned int linea)
 	if (*stack)
 		(*stack)->prev = aux;
 	*stack = aux;
-	free(aux);
 }
