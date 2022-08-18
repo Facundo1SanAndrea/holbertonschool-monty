@@ -1,6 +1,10 @@
 #include "monty.h"
-
-char *global_variable;
+/**
+ *push - pushes int to stack
+ *@stack: stack
+ *@linea: line code
+ *Return: 0
+ */
 
 void push(stack_t **stack, unsigned int linea)
 {
@@ -8,20 +12,21 @@ void push(stack_t **stack, unsigned int linea)
 	int i = 0;
 
 	while (global_variable[i])
-        {
-                if (global_variable[i] == '-' || global_variable[i] == '+')
-                {
-                        i++;
-                        continue;
-                }
-                else if (!(isdigit(global_variable[i])))
-                {
-                fprintf(stderr,"L%d: usage: push integer\n", linea);
-                exit(EXIT_FAILURE);
-                global_variable = "a";
-                }
-                i++;
-        }
+	{
+		if (global_variable[i] == '-' || global_variable[i] == '+')
+		{
+			i++;
+			continue;
+		}
+		else if (!(isdigit(global_variable[i])))
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", linea);
+			exit(EXIT_FAILURE);
+			global_variable = "a";
+		}
+		i++;
+	}
+
 	aux = malloc(sizeof(stack_t));
 	if (!aux)
 		printf("%d usage: push integer.\n", linea);
