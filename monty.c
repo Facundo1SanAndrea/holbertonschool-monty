@@ -38,7 +38,6 @@ int check_inst(char *token, unsigned int l_n, stack_t **st)
         int n = 0, i = 0;
 	stack_t *head = *st;
         instruction_t inst[] = {
-                {"prueba", prueba},
                 {"push", push},
                 {"pall", pall},
                 {"pint", pint},
