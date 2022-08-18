@@ -15,14 +15,14 @@ void add(stack_t **stack, unsigned int line_number)
 
 	if (element < 2)
 	{
-		fprintf(STDERR_FILENO, "L%d: can´t add, stack to short\n", line_number);
+		fprintf(stderr, "L%d: can´t add, stack to short\n", line_number);
 		free(*stack);
 		exit(EXIT_FAILURE);
 	}
 
 	head = (*stack)->next;
 	(*stack)->next->n += (*stack)->n;
-	free(*stack);
-	head->stack = NULL;
-	(*stack) = head;
+/*	free(*stack);*/
+/*	head->stack = NULL;*/
+	(*stack) = head->next;
 }
