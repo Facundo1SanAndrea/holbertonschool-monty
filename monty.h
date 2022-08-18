@@ -38,12 +38,13 @@ typedef struct instruction_s
 #include<ctype.h>
 
 FILE *error_message(int argc, char **argv);
-void check_inst(char *token, char *line, FILE *aux_argv, unsigned int l_n);
-int get_func(char *token, unsigned int line_number, stack_t *stack);
+void check_inst(char *token, char *line, FILE *aux_argv, unsigned int l_n, stack_t *stack);
+int get_func(char *token, unsigned int line_number, stack_t **stack);
 /*static int digit_only(char *arg);*/
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
+/*void prueba(stack_t **stack, unsigned int line_number);*/
 
 extern char *global_variable;
 
