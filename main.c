@@ -8,11 +8,10 @@
  *
  * Return: 0 in sucess, or 1 on error.
  */
-char *global_variable;
 
 int main(int argc, char **argv)
 {
-	char *line = NULL, *token = NULL, *token_2 = NULL; 
+	char *line = NULL, *token = NULL, *token_2 = NULL;
 	unsigned int line_max = 1024, line_number = 1;
 	FILE *aux_argv;
 	stack_t *stack;
@@ -21,7 +20,7 @@ int main(int argc, char **argv)
 	line = malloc(line_max);
 	if (line == NULL)
 	{
-		fprintf(stderr,"Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	aux_argv = error_message(argc, argv); /*busca archivo*/
@@ -50,5 +49,5 @@ int main(int argc, char **argv)
 	if (!(strcmp(global_variable, "1")))
 		exit(EXIT_FAILURE);
 	else
-		return(out);
+		return (out);
 }
