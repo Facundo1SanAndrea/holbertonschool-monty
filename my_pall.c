@@ -6,16 +6,12 @@
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
-	(void) line_number;
-/*	printf("antes del while\n");*/
-	while(stack)
+	stack_t *head = *stack;
+	line_number += 0;
+
+	while(head->next)
 	{
-/*		printf("entró al while");*/
 		printf("%d\n", head->n);
 		head = head->next;
-		/*if (head == *stack)
-		{
-			return;
-		}*/
 	}
 }

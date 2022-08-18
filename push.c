@@ -13,10 +13,12 @@ void push(stack_t **stack, unsigned int linea)
 			exit(EXIT_FAILURE);
 		aux->prev = NULL;
 		aux->n = atoi(global_variable);
+		free(aux);
 	}
 	else
 	{
 		fprintf(stderr,"L%d: usage: push integer\n", linea);
+		free(aux);
 		exit(EXIT_FAILURE);
 	}
 		
