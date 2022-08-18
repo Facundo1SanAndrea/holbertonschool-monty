@@ -10,12 +10,12 @@ void add(stack_t **stack, unsigned int line_number)
 	stack_t *strlen = *stack;
 	int element;
 
-	for (element = 0; strlen != NULL; element++)
+	for (element = 0; strlen->next; element++)
 		strlen = strlen->next;
 
 	if (element < 2)
 	{
-		fprintf(stderr, "L%d: can´t add, stack to short\n", line_number);
+		fprintf(stderr, "L%d: can´t add, stack too short\n", line_number);
 		global_variable = "1";
 		return;
 	}
