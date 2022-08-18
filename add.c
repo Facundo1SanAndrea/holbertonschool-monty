@@ -1,8 +1,9 @@
 #include "monty.h"
 /**
- *
- *
- *
+ *add - adds top two elements
+ *@stack: stack
+ *@line_number: line of code
+ *Return: 0
  */
 void add(stack_t **stack, unsigned int line_number)
 {
@@ -22,7 +23,7 @@ void add(stack_t **stack, unsigned int line_number)
 
 	head = (*stack)->next;
 	(*stack)->next->n += (*stack)->n;
-/*	free(*stack);*/
+	free(*stack);
 /*	head->stack = NULL;*/
 	(*stack) = head->next;
 }
