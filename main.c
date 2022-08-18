@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 				token_2 = strtok(NULL, " \t\n");
 				global_variable = token_2;
 			}
-			out = check_inst(token, line_number, stack);
+			out = check_inst(token, line_number, &stack);
 		}
 		line_number++;
 	}

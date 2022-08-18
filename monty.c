@@ -34,7 +34,8 @@ FILE *error_message(int argc, char **argv)
 
 int get_func(char *token, unsigned int line_number, stack_t **stack)
 {
-        int i = 0;
+        stack_t *head = *stack;
+	int i = 0;
 	instruction_t inst[] = {
 		{"prueba", prueba},
 		{"push", push},
@@ -51,7 +52,7 @@ int get_func(char *token, unsigned int line_number, stack_t **stack)
         {
 		if (!(strcmp(inst[i].opcode, token)))
 		{
-			(*(inst[i].f))(stack, line_number);
+			(*(inst[i].f))(&head, line_number);
 			return (0);
 		}
 		i++;
@@ -59,11 +60,12 @@ int get_func(char *token, unsigned int line_number, stack_t **stack)
 	return (1);
 }
 
-int check_inst(char *token, unsigned int l_n, stack_t *st)
+int check_inst(char *token, unsigned int l_n, stack_t **st)
 {
         int n = 0;
+	stack_t *head = *st;
 
-        n = get_func(token, l_n, &st);
+        n = get_func(token, l_n, &head);
         if (n == 1)
         {
                 fprintf(stderr, "L%d: unknown instruction %s\n", l_n, token);
