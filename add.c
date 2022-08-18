@@ -16,8 +16,8 @@ void add(stack_t **stack, unsigned int line_number)
 	if (element < 2)
 	{
 		fprintf(stderr, "L%d: can´t add, stack to short\n", line_number);
-		free(*stack);
-		exit(EXIT_FAILURE);
+		global_variable = "1";
+		return;
 	}
 
 	head = (*stack)->next;

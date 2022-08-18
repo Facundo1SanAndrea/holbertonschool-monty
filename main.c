@@ -1,9 +1,12 @@
 #include "monty.h"
 
 /**
+ * main - this fucntion is the principal
  *
+ * @argc: is the number of arguments.
+ * @argv: is the array of arguments.
  *
- *
+ * Return: 0 in sucess, or 1 on error.
  */
 char *global_variable;
 
@@ -33,11 +36,19 @@ int main(int argc, char **argv)
 				if (token_2)
 					global_variable = token_2;
 			}
-			out = check_inst(token, line_number, &stack);
+		out = check_inst(token, line_number, &stack);
 		}
 		line_number++;
 	}
 	fclose(aux_argv);
+	while (stack->next)
+	{
+		free(stack);
+		stack = stack->next;
+	}
 	free(line);
-	return(out);
+	if (!(strcmp(global_variable, "1")))
+		exit(EXIT_FAILURE);
+	else
+		return(out);
 }
