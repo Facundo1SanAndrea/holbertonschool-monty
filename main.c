@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 	char *line = NULL, *token = NULL, *token_2 = NULL; 
 	unsigned int line_max = 1024, line_number = 1;
 	FILE *aux_argv;
-	stack_t *stack = NULL;
+	stack_t *stack;
 	int out = 0;
 
 	line = malloc(line_max);
@@ -30,7 +30,8 @@ int main(int argc, char **argv)
 			if (!(strcmp("push", token)))
 			{
 				token_2 = strtok(NULL, " \t\n");
-				global_variable = token_2;
+				if (token_2)
+					global_variable = token_2;
 			}
 			out = check_inst(token, line_number, &stack);
 		}

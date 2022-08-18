@@ -32,47 +32,38 @@ FILE *error_message(int argc, char **argv)
  *
  */
 
-int get_func(char *token, unsigned int line_number, stack_t **stack)
-{
-        stack_t *head = *stack;
-	int i = 0;
-	instruction_t inst[] = {
-		{"prueba", prueba},
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{"pop", pop},
-		{NULL, NULL} 
-        };
-
-	while (inst[i].opcode)
-        {
-		if (!(strcmp(inst[i].opcode, token)))
-		{
-			(*(inst[i].f))(&head, line_number);
-			return (0);
-		}
-		i++;
-        }
-	return (1);
-}
 
 int check_inst(char *token, unsigned int l_n, stack_t **st)
 {
-        int n = 0;
+        int n = 0, i = 0;
 	stack_t *head = *st;
+        instruction_t inst[] = {
+                {"prueba", prueba},
+                {"push", push},
+                {"pall", pall},
+                {"pint", pint},
+                {"swap", swap},
+                {"add", add},
+                {"nop", nop},
+                {"pop", pop},
+                {NULL, NULL}
+        };
 
-        n = get_func(token, l_n, &head);
-        if (n == 1)
+        while (inst[i].opcode)
         {
-                fprintf(stderr, "L%d: unknown instruction %s\n", l_n, token);
+                if (!(strcmp(inst[i].opcode, token)))
+                {
+                       /* printf("funcion %s\n", inst[i].opcode);*/
+                        (*(inst[i].f))(&head, l_n);
+			*st = head;
+                        return (0);
+                }
+                i++;
+        } 
+	n = 1;
+        fprintf(stderr, "L%d: unknown instruction %s\n", l_n, token);
                 /*fclose(aux_argv);*/
                 /*free(line);*/
-        }
 	return (n);
-
 
 }
