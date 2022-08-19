@@ -20,7 +20,6 @@ void swap(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		global_variable = "1";
-		free(stack);
 		return;
 	}
 	else
