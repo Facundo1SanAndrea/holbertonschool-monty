@@ -24,7 +24,6 @@ void add(stack_t **stack, unsigned int line_number)
 
 	head = (*stack)->next;
 	(*stack)->next->n += (*stack)->n;
-	free(*stack);
 	(*stack) = head->next;
 	newstack = malloc(sizeof(stack_t));
 	if (newstack == NULL)
