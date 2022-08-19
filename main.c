@@ -47,6 +47,7 @@ int main(int argc, char **argv)
 		free(stack);
 		stack = stack->next;
 	}
+	free(line);
 	if (!(strcmp(global_variable, "1")))
 		exit(EXIT_FAILURE);
 	else
