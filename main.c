@@ -9,6 +9,7 @@
  * Return: 0 in sucess, or 1 on error.
  */
 
+
 int main(int argc, char **argv)
 {
 	char *line = NULL, *token = NULL, *token_2 = NULL;
@@ -17,6 +18,7 @@ int main(int argc, char **argv)
 	stack_t *stack;
 	int out = 0;
 
+	global_variable = NULL;
 	line = malloc(line_max);
 	if (line == NULL)
 	{
