@@ -7,9 +7,8 @@
  */
 void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *head = *stack;
+	int element, tmp, tmp2, suma;
 	stack_t *strlen = *stack;
-	int element;
 
 	for (element = 0; strlen->next; element++)
 		strlen = strlen->next;
@@ -20,8 +19,10 @@ void add(stack_t **stack, unsigned int line_number)
 		global_variable = "1";
 		return;
 	}
+	tmp = (*stack)->n;
+	tmp2 = (*stack)->next->n;
+	suma = tmp + tmp2;
+	(*stack)->next->n = suma;
+	pop(stack, line_number);
 
-	head = (*stack)->next;
-	(*stack)->next->n += (*stack)->n;
-	(*stack) = head->next;
 }
