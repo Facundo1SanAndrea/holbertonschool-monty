@@ -44,7 +44,6 @@ int main(int argc, char **argv)
 	fclose(aux_argv);
 	while (stack->next)
 	{
-		free(stack);
 		stack = stack->next;
 	}
 	free(line);
