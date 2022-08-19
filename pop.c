@@ -18,7 +18,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L%u: can´t pop any empty stack\n", line_number);
+		fprintf(stderr, "L%u: can't pop any empty stack\n", line_number);
 		global_variable = "1";
 		return;
 	}
