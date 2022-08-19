@@ -9,6 +9,7 @@ void add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head = *stack;
 	stack_t *strlen = *stack;
+	stack_t *newstack;
 	int element;
 
 	for (element = 0; strlen->next; element++)
@@ -25,4 +26,18 @@ void add(stack_t **stack, unsigned int line_number)
 	(*stack)->next->n += (*stack)->n;
 	free(*stack);
 	(*stack) = head->next;
+	newstack = malloc(sizeof(stack_t));
+	if (newstack == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		global_variable = "1";
+		return;
+	}
+	newstack->next = *stack;
+	newstack->prev = NULL;
+	newstack->n = element;
+	if (newstack->next != NULL)
+		newstack->next->prev = newstack;
+	*stack = newstack;
+
 }
