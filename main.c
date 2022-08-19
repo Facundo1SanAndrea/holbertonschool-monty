@@ -18,7 +18,6 @@ int main(int argc, char **argv)
 	stack_t *stack;
 	int out = 0;
 
-	global_variable = NULL;
 	line = malloc(line_max);
 	if (line == NULL)
 	{
@@ -40,6 +39,7 @@ int main(int argc, char **argv)
 		out = check_inst(token, line_number, &stack);
 		}
 		line_number++;
+		/*global_variable = NULL;*/
 	}
 	fclose(aux_argv);
 	while (stack->next)
