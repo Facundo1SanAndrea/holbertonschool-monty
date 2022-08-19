@@ -51,8 +51,6 @@ int check_inst(char *token, unsigned int l_n, stack_t **st)
 		{NULL, NULL}
 	};
 
-	/*if (!(strcmp("nop", token)))
-		return(0);*/
 	while (inst[i].opcode)
 	{
 		if (!(strcmp(inst[i].opcode, token)))
