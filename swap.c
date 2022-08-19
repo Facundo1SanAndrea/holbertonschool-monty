@@ -26,6 +26,7 @@ void swap(stack_t **stack, unsigned int line_number)
 		head = *stack, strlen = (*stack)->next;
 		strlen->prev = NULL, head->prev = strlen;
 		head->next = strlen->next, strlen->next = head;
+		free(*stack);
 		*stack = strlen;
 	}
 }
