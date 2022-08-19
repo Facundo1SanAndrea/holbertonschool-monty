@@ -45,6 +45,7 @@ int main(int argc, char **argv)
 	while (stack->next)
 	{
 		stack = stack->next;
+		free(stack);
 	}
 	free(line);
 	if (!(strcmp(global_variable, "1")))
