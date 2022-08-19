@@ -8,6 +8,7 @@
 void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head, *strlen, *prestack;
+	int tmp, tmp2;
 
 	head = *stack;
 
@@ -34,9 +35,8 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	if (prestack)
 		prestack->prev = head;
-	*stack = strlen;
-	strlen->prev = NULL;
-	strlen->next = head;
-	head->prev = strlen;
-	head->next = prestack;
+	tmp = (*stack)->n;
+	tmp2 = (*stack)->next->n;
+	(*stack)->n = tmp2;
+	(*stack)->next->n = tmp;
 }
